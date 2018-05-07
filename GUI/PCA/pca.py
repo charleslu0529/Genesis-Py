@@ -87,9 +87,27 @@ shape = []
 print("shape = ",shape)
 
 # plt.scatter(pca_evec_entries[choice_1], pca_evec_entries[choice_2],10, shape)
-print("creating scatter plot with pca_evec_entries[choice_2] as shape")
+print("creating scatter plot with pca_evec_entries[choice_2] as shape\n")
+
 plt.scatter(pca_evec_entries[choice_1], pca_evec_entries[choice_2],10, pca_evec_entries[choice_2])
 
 print(pca_evec_entries[0])
+ymin = 0
+ymax = len(pca_evec_entries[choice_2])
+ystep = int(len(pca_evec_entries[choice_2])/20)
+
+xmin = ymin
+xmax = len(pca_evec_entries[choice_1])
+xstep = int(len(pca_evec_entries[choice_1])/20)
+
+# print("ystep = ", ystep)
+# print("ymin = ", ymin)
+# print("ymax = ", ymax,"\n")
+# print("xstep = ",xstep)
+# print("xmin = ", xmin)
+# print("xmax = ", xmax,"\n")
+
+plt.yticks(np.arange(ymin, ymax, ystep))
+plt.xticks(np.arange(xmin, xmax ,xstep))
 plt.show()
 pca_file.close()
