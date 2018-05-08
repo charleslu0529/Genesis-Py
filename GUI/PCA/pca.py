@@ -71,11 +71,44 @@ print("pca_evec_entries[0] = ", pca_evec_entries[0],"\n")
 print("phe Entries = ", phe_entries[0],"\n")
 print("pca entry with Choice 2 = ", pca_evec_entries[choice_2],"\n")
 shape = []
+idList = pca_evec_entries[0]
 
 # common_entries = set(pca_evec_entries[0]).)
 # print("Common Entries: ", common_entries)
-# for idx, value in range(1,number_of_pca):
-#     code = pca_evec_entries[idx].split(":")
+
+geoGroup_micro = ""
+dotColour = np.random.rand(3,)
+groupColour = {}
+
+print("Running for loop for grouping\n")
+for value in range(0,len(idList)):
+    id = idList[value].split(":")
+    # print("id = ",id,"\n")
+    for idx, content in enumerate(phe_entries):
+        # print("idx = ",idx,"\n")
+        if all(elem in phe_entries[idx]  for elem in id):
+            position = phe_entries[idx].index(id[0])
+            # print("Found Common\n")
+            # print("geoGroup = ",geoGroup_micro)
+            # print("phe_entries[2][position] = ", phe_entries[2][position],"\n")
+            if geoGroup_micro == phe_entries[2][position]:
+                # print("Appending ",dotColour)
+                shape.append(dotColour)
+            else:
+                geoGroup_micro = phe_entries[2][position]
+                if geoGroup_micro in groupColour:
+                    dotColour = groupColour[geoGroup_micro]
+                else:
+                    dotColour = np.random.rand(3, )
+                    # print("Group colour = ", groupColour, "\n")
+                    while all(elem in groupColour for elem in dotColour):
+                        # print("dotColour = ", dotColour, "\n")
+                        dotColour = np.random.rand(3, )
+                    groupColour[geoGroup_micro] = dotColour
+                shape.append(dotColour)
+                # print("Appending ", dotColour)
+                # print("dotColour = ",dotColour)
+                # print("geoGroup = ",geoGroup_micro,"\n")
 
 
 # for number in range(1,number_of_pca):
@@ -86,10 +119,10 @@ shape = []
 
 print("shape = ",shape)
 
-# plt.scatter(pca_evec_entries[choice_1], pca_evec_entries[choice_2],10, shape)
-print("creating scatter plot with pca_evec_entries[choice_2] as shape\n")
+plt.scatter(pca_evec_entries[choice_1], pca_evec_entries[choice_2], 10, shape)
+# print("creating scatter plot with pca_evec_entries[choice_2] as shape\n")
 
-plt.scatter(pca_evec_entries[choice_1], pca_evec_entries[choice_2],10, pca_evec_entries[choice_2])
+# plt.scatter(pca_evec_entries[choice_1], pca_evec_entries[choice_2],10, pca_evec_entries[choice_2])
 
 print(pca_evec_entries[0])
 ymin = 0
