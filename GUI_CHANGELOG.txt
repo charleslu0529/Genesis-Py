@@ -1,0 +1,25 @@
+Genesis-Py GUI Changelog
+
+*****v0.0.1a(week 10)*****
+- Created prototype application main frame using wxPython
+
+*****v0.0.2a(week 12)*****
+- Created menu prototype
+	- Added keyboard shortcut
+	- Added menu icon
+	- Added sub-menu
+- Created toolbar prototype
+	- Added icon
+
+*****v0.0.3a(week 12)*****
+- Formatted frame using FlexGridSizer
+	- Added test text input box
+	- Added test confirmation buttons to frame
+
+*****v0.0.4a(week 12)*****
+- Added icons and functionality buttons to toolbar
+- Improved file menu functionality
+
+*****v0.0.5a(week 13)*****
+- Added filesystem for GUI
+- Added external class support
