@@ -3,7 +3,9 @@ import wx
 import numpy as np
 from collections import defaultdict
 
+
 class PCAGraph:
+
     app = wx.App()
 
     def __init__(self):
@@ -13,7 +15,14 @@ class PCAGraph:
         self.phe_file = None
         self.eigenValues = []
         self.number_of_pca = 0
-        self.choices = []
+        self.choiceLen = None
+        # these are the column choices from the phenotype file. to get data you will need to run readFile()
+        self.choiceList = []
+
+        # these are the file directory string
+        self.evecFilePath = ""
+        self.pheFilePath = ""
+
         self.shape = []
         self.idList = []
         self.geoGroup_micro = ""
@@ -24,18 +33,25 @@ class PCAGraph:
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
         # print("Select evec file\n")
-        wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open evec file", wildcard="evec files (*.evec)|*.evec", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
+        wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Evec file", wildcard="evec files (*.evec)|*.evec", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
         wxFileChoice.ShowModal()
-        filename = wxFileChoice.GetPath()
-        self.evec_file = open(filename, "r+")
+        self.evecFilePath = wxFileChoice.GetPath()
+        self.evec_file = open(self.evecFilePath, "r+")
 
     def importPheFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
         wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Phenotype file", wildcard="phe files (*.phe)|*.phe", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
         wxFileChoice.ShowModal()
-        filename = wxFileChoice.GetPath()
-        self.phe_file = open(filename, "r+")
+        self.pheFilePath = wxFileChoice.GetPath()
+        self.phe_file = open(self.pheFilePath, "r+")
+
+        line = self.evec_file.readline()
+        data = line.split()
+        self.choiceLen = len(data)
+
+        for x in range(1, self.choiceLen):
+            self.choiceList.append(x)
 
     def readFiles(self):
         for line in self.evec_file:
@@ -48,7 +64,7 @@ class PCAGraph:
                 for idx, data in enumerate(datas):
                     self.pca_evec_entries[idx].append(data)
 
-        for line in self.evec_file:
+        for line in self.phe_file:
             datas = line.split()
             for idx, data in enumerate(datas):
                 self.phe_entries[idx].append(data)
@@ -56,33 +72,33 @@ class PCAGraph:
         self.idList = self.pca_evec_entries[0]
         self.number_of_pca = len(self.pca_evec_entries) - 1
 
-    def choosePCA(self):
-        for x in range(1, self.number_of_pca):
-            self.choices.append(x)
-        wxFrame = wx.Frame()
-        panel = wx.Panel(wxFrame)
-        box = wx.BoxSizer(wx.VERTICAL)
-        label = wx.StaticText(panel, label="PCA choice 1:", style=wx.ALIGN_CENTRE)
-        box.Add(label, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 10)
+    def choosePCA(self, user_choice_1, user_choice_2):
 
-        combo_1 = wx.ComboBox(panel, self.choices)
-        box.Add(combo_1, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
-
-        label_2 = wx.StaticText(panel, label="PCA choice 2:", style=wx.ALIGN_CENTRE)
-        box.Add(label_2, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
-
-        combo_2 = wx.ComboBox(panel, self.choices)
-        box.Add(combo_2, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
-
-        panel.SetSizer(box)
-
-        wxFrame.Show()
+        # wxFrame = wx.Frame()
+        # panel = wx.Panel(wxFrame)
+        # box = wx.BoxSizer(wx.VERTICAL)
+        # label = wx.StaticText(panel, label="PCA choice 1:", style=wx.ALIGN_CENTRE)
+        # box.Add(label, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 10)
+        #
+        # combo_1 = wx.ComboBox(panel, self.choiceList)
+        # box.Add(combo_1, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
+        #
+        # label_2 = wx.StaticText(panel, label="PCA choice 2:", style=wx.ALIGN_CENTRE)
+        # box.Add(label_2, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
+        #
+        # combo_2 = wx.ComboBox(panel, self.choiceList)
+        # box.Add(combo_2, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
+        #
+        # panel.SetSizer(box)
+        #
+        # wxFrame.Show()
 
         # use wxpython to create dropdown for pca choices to plot
-        self.choice_1 = self.choices[combo_1.GetValue()]
-        self.choice_2 = self.choices[combo_2.GetValue()]
+        self.choice_1 = self.choiceList[user_choice_1 - 1]
+        self.choice_2 = self.choiceList[user_choice_2 - 1]
 
     def initGroupColour(self):
+        self.shape = []
         for value in range(0, len(self.idList)):
             id = self.idList[value].split(":")
             for idx, content in enumerate(self.phe_entries):
@@ -100,6 +116,22 @@ class PCAGraph:
                                 self.dotColour = np.random.rand(3, )
                                 self.groupColour[self.geoGroup_micro] = self.dotColour
                                 self.shape.append(self.dotColour)
+
+    def changeGroupColour(self, group_name, new_colour):
+        self.groupColour[group_name] = new_colour
+        self.initGroupColour()
+        plt.close()
+        plt.scatter(self.pca_evec_entries[self.choice_1], self.pca_evec_entries[self.choice_2], 10, self.shape)
+        plt.show()
+
+    def pickColour(self):
+        wxColourPicker = wx.ColourDialog(wx.Frame(None, -1, "win.py"))
+        wxColourPicker.ShowModal()
+
+        new_colour = wxColourPicker.GetColourData().GetColour()
+        print(new_colour)
+
+        self.changeGroupColour("CHD", new_colour)
 
     def plotScatter(self):
         plt.scatter(self.pca_evec_entries[self.choice_1], self.pca_evec_entries[self.choice_2], 10, self.shape)

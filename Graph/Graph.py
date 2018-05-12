@@ -17,8 +17,8 @@ def DrawGraph(typeOFGraph):
         pcaGraph.importEvecFile()
         pcaGraph.importPheFile()
         pcaGraph.readFiles()
-        pcaGraph.choosePCA()
+        pcaGraph.choosePCA(0, 4)
         pcaGraph.initGroupColour()
         pcaGraph.plotScatter()
-
+        pcaGraph.pickColour()
 DrawGraph("PCA")
