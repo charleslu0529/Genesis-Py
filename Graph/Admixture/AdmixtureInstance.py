@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-#import numpy as np
+# import numpy as np
 import wx
 
 
@@ -15,6 +15,12 @@ class AdmixController:
         self.height = 0
         self.width = 0
 
+        self.maxColNum = 0
+
+        self.dataPath = ""
+        self.phePath = ""
+        self.choiceList = []
+
         self.Matrix = []
         self.sortedMatrix = []
 
@@ -27,7 +33,12 @@ class AdmixController:
         self.conciseGroupList = []
 
         self.groupCount = 0
+
+        # Stores which column of the Phe file to use for the plotting
         self.column = 4
+
+        self.colourPal = plt.rcParams['axes.prop_cycle'].by_key()['color']
+        self.graphAlpha = 1
 
     def importData(self):
 
@@ -44,15 +55,19 @@ class AdmixController:
         openDataFileDlg.ShowModal()
 
         # Store the path received from this dialogue
-        dataPath = openDataFileDlg.GetPath()
+        self.dataPath = openDataFileDlg.GetPath()
 
         openDataFileDlg.Destroy()
 
         # Here we begin reading data from the two files the user has selected
-        self.dataFile = open(dataPath, "r")
+        self.dataFile = open(self.dataPath, "r")
 
         line = self.dataFile.readline()
         self.height = len(line.split())  # splits line into words separated by spans of white space
+
+        self.choiceList = []
+        for col in range(self.height):
+            self.choiceList.append("Col " + str(col))
 
         self.dataFile.seek(0)  # takes marker back to byte 0
 
@@ -77,12 +92,12 @@ class AdmixController:
         openPheFileDlg.ShowModal()
         # print(openFileDlg.GetPath())
         # Store the path received from this dialogue
-        phePath = openPheFileDlg.GetPath()
+        self.phePath = openPheFileDlg.GetPath()
 
         openPheFileDlg.Destroy()
 
         # Here we begin reading data from the two files the user has selected
-        self.pheFile = open(phePath, "r")
+        self.pheFile = open(self.phePath, "r")
 
     def populateMatrix(self):
 
@@ -200,15 +215,39 @@ class AdmixController:
             # We create an array with group names and their starting positions
             self.groupList.append([itemCount, collection])
 
-    def drawGraph(self):
+
+    def changeColour(self, colNum):
+
+
+        # Here we construct a dialogue with the colour picker in it
+        frame = wx.Frame(None, -1, 'win.py')
+        frame.SetSize(0, 0, 200, 50)
+
+        wxColourPicker = wx.ColourDialog(wx.Frame(None, -1, "win.py"))
+        wxColourPicker.ShowModal()
+
+        # The colour data contains a member called colour. This is actually a wxColour object.
+        # This object has a member function called getAsString. This returns the colour in various formats
+        # The flag 4 asks for the string in the hexadecimal form '#FFFFFF'
+        new_colour = wxColourPicker.GetColourData().GetColour().GetAsString(flags=4)  # flags=wxC2S_HTML_SYNTAX)
+
+        self.colourPal[colNum] = new_colour
+
+        # This reconstructs the graph, but the data in the graph is not changed.
+        # The overall functionality can only be tested with the GUI. When the GUI is integrated I will test this.
+        # Hopefully we can get that done soon.
+        self.createGraph(self.column)
+
+
+    def createGraph(self,col):
 
         # Here we actually construct the graph to be shown==============================================================
         x = [x for x in range(self.width)]
 
         fig, ax = plt.subplots()
-        print(x)
-        print(self.sortedMatrix)
-        ax.stackplot(x, self.sortedMatrix)  # Defines the size of our x axis and our y values
+
+        ax.stackplot(x, self.sortedMatrix, colors=self.colourPal,
+                     alpha=self.graphAlpha)  # Defines the size of our x axis and our y values
 
         # Here we label the x axis with the group names and their adjusted positions
         # (positions must be adjusted to the centre of the group)
@@ -229,5 +268,10 @@ class AdmixController:
 
 
 
+    def drawGraph(self, col):
+
+        self.populateMatrix()
+        self.sortGroups(col)  # note that col is the column we wish to use in the phe file
+        self.createGraph(col)
 
 # admix = AdmixController(4)

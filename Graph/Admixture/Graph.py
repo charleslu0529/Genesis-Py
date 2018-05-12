@@ -4,6 +4,6 @@ admix = AdmixtureInstance.AdmixController()
 
 admix.importData()
 admix.importPhe()
-admix.populateMatrix()
-admix.sortGroups(4)
-admix.drawGraph()
+admix.drawGraph(4)
+
+admix.changeColour(2)
