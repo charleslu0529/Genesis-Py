@@ -3,7 +3,6 @@ import wx
 import numpy as np
 from collections import defaultdict
 
-
 class PCAGraph:
 
     app = wx.App()
@@ -22,7 +21,6 @@ class PCAGraph:
         # these are the file directory string
         self.evecFilePath = ""
         self.pheFilePath = ""
-
         self.shape = []
         self.idList = []
         self.geoGroup_micro = ""
@@ -38,7 +36,6 @@ class PCAGraph:
         self.evecFilePath = wxFileChoice.GetPath()
         self.evec_file = open(self.evecFilePath, "r+")
 
-        wxFileChoice.Destroy()
 
     def importPheFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
@@ -54,8 +51,6 @@ class PCAGraph:
 
         for x in range(1, self.choiceLen):
             self.choiceList.append(x)
-
-        wxFileChoice.Destroy()
 
     def readFiles(self):
         for line in self.evec_file:

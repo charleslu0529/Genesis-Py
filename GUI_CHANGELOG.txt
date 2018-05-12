@@ -26,3 +26,7 @@ Genesis-Py GUI Changelog
 
 *****v0.0.6a(week13)*****
 - Integrated file import frames
+
+*****v0.0.8a(week13)*****
+- Integration of plotting import functions
+- Buttons working
