@@ -1,6 +1,5 @@
 from Graph import *
 __all__ = ['pca']
-from PCA.pca import PCAGraph
 # import inspect
 # import os
 # import sys

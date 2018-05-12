@@ -1,15 +1,7 @@
 import matplotlib.pyplot as plt
 import wx
 import numpy as np
-import random
 from collections import defaultdict
-
-
-#importFile()
-
-# populateData()
-
-# SortData()
 
 class PCAGraph:
     app = wx.App()
@@ -40,7 +32,7 @@ class PCAGraph:
     def importPheFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
-        wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Phenotype file", wildcard="evec files (*.phe)|*.phe", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
+        wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Phenotype file", wildcard="phe files (*.phe)|*.phe", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
         wxFileChoice.ShowModal()
         filename = wxFileChoice.GetPath()
         self.phe_file = open(filename, "r+")
@@ -67,7 +59,8 @@ class PCAGraph:
     def choosePCA(self):
         for x in range(1, self.number_of_pca):
             self.choices.append(x)
-        panel = wx.Panel()
+        wxFrame = wx.Frame()
+        panel = wx.Panel(wxFrame)
         box = wx.BoxSizer(wx.VERTICAL)
         label = wx.StaticText(panel, label="PCA choice 1:", style=wx.ALIGN_CENTRE)
         box.Add(label, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 10)
@@ -80,6 +73,10 @@ class PCAGraph:
 
         combo_2 = wx.ComboBox(panel, self.choices)
         box.Add(combo_2, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
+
+        panel.SetSizer(box)
+
+        wxFrame.Show()
 
         # use wxpython to create dropdown for pca choices to plot
         self.choice_1 = self.choices[combo_1.GetValue()]
