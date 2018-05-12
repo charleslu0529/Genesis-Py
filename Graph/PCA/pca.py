@@ -38,6 +38,8 @@ class PCAGraph:
         self.evecFilePath = wxFileChoice.GetPath()
         self.evec_file = open(self.evecFilePath, "r+")
 
+        wxFileChoice.Destroy()
+
     def importPheFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
@@ -52,6 +54,8 @@ class PCAGraph:
 
         for x in range(1, self.choiceLen):
             self.choiceList.append(x)
+
+        wxFileChoice.Destroy()
 
     def readFiles(self):
         for line in self.evec_file:
