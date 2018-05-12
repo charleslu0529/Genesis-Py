@@ -116,3 +116,5 @@ class PCAGraph:
         self.evec_file.close()
         self.phe_file.close()
 
+pcaGrapher = PCAGraph()
+
