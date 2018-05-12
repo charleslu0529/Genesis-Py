@@ -1,5 +1,8 @@
 import os
 import wx
+import sys
+
+from Graph.Admixture.AdmixtureInstance import AdmixController as AdmixCont
 
 class Admix_Import_View(wx.Frame):
     def __init__(self, *args, **kwargs):
@@ -20,14 +23,14 @@ class Admix_Import_View(wx.Frame):
 
         butt_import_data = wx.Button(panel, label="Import data file:") # button select data import location
         sizer.Add(butt_import_data, pos=(0,0), flag=wx.LEFT, border=10)
-        #self.Bind(wx.EVT_BUTTON,)
+        self.Bind(wx.EVT_BUTTON, self.admix_import_data, butt_import_data)
 
         disp_data_import_loc = wx.TextCtrl(panel, value = "", style = wx.TE_READONLY) # file path display
         sizer.Add(disp_data_import_loc, pos=(0,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
         butt_import_phe = wx.Button(panel, label="Import .phe file:") # button select phe import location
         sizer.Add(butt_import_phe, pos=(1,0), flag=wx.LEFT, border=10)
-        #self.Bind(wx.)
+        self.Bind(wx.EVT_BUTTON, self.admix_import_phe, butt_import_phe)
 
         disp_phe_import_loc = wx.TextCtrl(panel, value = "", style = wx.TE_READONLY) # file path display
         sizer.Add(disp_phe_import_loc, pos=(1,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
@@ -46,6 +49,12 @@ class Admix_Import_View(wx.Frame):
 
     def on_quit(self, e):
         self.Close()
+
+    def admix_import_data(self, event):
+        AdmixCont.importData(self)
+
+    def admix_import_phe(self, event):
+        AdmixCont.importPhe(self)
 
 
     #def Open_file(self, event):
