@@ -37,51 +37,56 @@ class AdmixController:
         # Stores which column of the Phe file to use for the plotting
         self.column = 4
 
+        # This gets the default colour palette for the graph
         self.colourPal = plt.rcParams['axes.prop_cycle'].by_key()['color']
         self.graphAlpha = 1
 
     def importData(self):
 
-        # The following is used to create the an open file dialogue box
-
-
+        # The following is used to create the an open file dialogue box for the data file
         frame = wx.Frame(None, -1, 'win.py')
         frame.SetSize(0, 0, 200, 50)
 
         # Creates the open file dialogue
         openDataFileDlg = wx.FileDialog(frame, "Open Data File", wildcard="Q data files (*.1;*.2;*.3;*.4;*.5;*.6;*.7)|*.1;*.2;*.3;*.4;*.5;*.6;*.7", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
 
+        # openDataFileDlg.ShowModal()
 
-        openDataFileDlg.ShowModal()
+
+        if openDataFileDlg.ShowModal() == wx.ID_CANCEL:
+            return  # the user changed their mind, thus we will not do anything
 
         # Store the path received from this dialogue
         self.dataPath = openDataFileDlg.GetPath()
+        try:
+            # Here we begin reading data from the file the user has selected
+            self.dataFile = open(self.dataPath, "r")
+
+            line = self.dataFile.readline()
+            self.height = len(line.split())  # splits line into words separated by spans of white space
+
+            self.choiceList = []
+            for col in range(self.height):
+                self.choiceList.append("Col " + str(col))
+
+            self.dataFile.seek(0)  # takes marker back to byte 0
+
+            # Width is the total number of rows in the file
+            self.width = 0
+            for line in self.dataFile:
+                self.width = self.width + 1
+
+            self.dataFile.seek(0)  # Starts reading the file from the beginning again
+
+        except IOError:
+            wx.LogError("Cannot open file '%s'." % self.dataPath)
 
         openDataFileDlg.Destroy()
-
-        # Here we begin reading data from the two files the user has selected
-        self.dataFile = open(self.dataPath, "r")
-
-        line = self.dataFile.readline()
-        self.height = len(line.split())  # splits line into words separated by spans of white space
-
-        self.choiceList = []
-        for col in range(self.height):
-            self.choiceList.append("Col " + str(col))
-
-        self.dataFile.seek(0)  # takes marker back to byte 0
-
-        # Width is the total number of rows in the file
-        self.width = 0
-        for line in self.dataFile:
-            self.width = self.width + 1
-
-        self.dataFile.seek(0)  # Starts reading the file from the beginning again
 
 
     def importPhe(self):
 
-        # The following is used to create the two open file dialogue boxes
+        # The following is used to create the an open file dialogue box for the phe file
 
         frame = wx.Frame(None, -1, 'win.py')
         frame.SetSize(0, 0, 200, 50)
@@ -89,15 +94,32 @@ class AdmixController:
         # Creates the open file dialogue for the phe file
         openPheFileDlg = wx.FileDialog(frame, "Open Data File", wildcard="phe files (*.phe)|*.phe", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
 
-        openPheFileDlg.ShowModal()
-        # print(openFileDlg.GetPath())
+        # Original Open Phe File Function #FearOfCommitment
+        '''openPheFileDlg.ShowModal()
+
         # Store the path received from this dialogue
         self.phePath = openPheFileDlg.GetPath()
 
         openPheFileDlg.Destroy()
 
         # Here we begin reading data from the two files the user has selected
-        self.pheFile = open(self.phePath, "r")
+        self.pheFile = open(self.phePath, "r")'''
+
+
+
+        if openPheFileDlg.ShowModal() == wx.ID_CANCEL:
+            return  # the user changed their mind, thus we will not do anything
+
+        # Store the path received from this dialogue
+        self.phePath = openPheFileDlg.GetPath()
+        try:
+            # Here we begin reading data from the file the user has selected
+            self.pheFile = open(self.phePath, "r")
+
+        except IOError:
+            wx.LogError("Cannot open file " + self.phePath + "." % self.phePath)
+
+        openPheFileDlg.Destroy()
 
     def populateMatrix(self):
 
@@ -216,6 +238,8 @@ class AdmixController:
             self.groupList.append([itemCount, collection])
 
 
+    # Nandi, call this function to change a single colour on the graph
+    # The number represents the index of the colour being changed in our choiceList list
     def changeColour(self, colNum):
 
 
@@ -236,6 +260,14 @@ class AdmixController:
         # This reconstructs the graph, but the data in the graph is not changed.
         # The overall functionality can only be tested with the GUI. When the GUI is integrated I will test this.
         # Hopefully we can get that done soon.
+        self.createGraph(self.column)
+
+
+
+    # Nandi, call this function to change the alpha value of the graph
+    def changeAlpha(self, alpha):
+
+        self.graphAlpha = alpha
         self.createGraph(self.column)
 
 
@@ -273,5 +305,36 @@ class AdmixController:
         self.populateMatrix()
         self.sortGroups(col)  # note that col is the column we wish to use in the phe file
         self.createGraph(col)
+
+
+    #def saveGraph(self):
+
+    def saveGraph(self, saveFile):
+
+        print("I\'m saving this booi!!!!")
+
+        saveFile.close()
+
+
+    def OnSaveAs(self):
+
+        # Here we construct a save as dialogue box
+        frame = wx.Frame(None, -1, 'win.py')
+        frame.SetSize(0, 0, 175, 60)
+
+        with wx.FileDialog(frame, "Save current work in GEN file", wildcard="GEN files (*.gen)|*.gen",
+                               style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT) as SaveAsDlg:
+
+            if SaveAsDlg.ShowModal() == wx.ID_CANCEL:
+                return  # the user changed their mind, thus we will not do anything
+
+            # save the current contents in the file
+            savePath = SaveAsDlg.GetPath()
+            try:
+                with open(savePath, 'w') as saveFile:
+                    self.saveGraph(saveFile)
+            except IOError:
+                wx.LogError("Cannot save current data in file " + savePath + "." % savePath)
+
 
 # admix = AdmixController(4)
