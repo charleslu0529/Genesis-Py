@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
-<<<<<<< HEAD
 # import numpy as np
-=======
-#import numpy as np
->>>>>>> origin/Nandi
+
 import wx
 
 
@@ -18,16 +15,10 @@ class AdmixController:
         self.pheFile = None
         self.height = 0
         self.width = 0
-
-<<<<<<< HEAD
         self.maxColNum = 0
-
         self.dataPath = ""
         self.phePath = ""
         self.choiceList = []
-
-=======
->>>>>>> origin/Nandi
         self.Matrix = []
         self.sortedMatrix = []
 
@@ -40,7 +31,6 @@ class AdmixController:
         self.conciseGroupList = []
 
         self.groupCount = 0
-<<<<<<< HEAD
 
         # Stores which column of the Phe file to use for the plotting
         self.column = 4
@@ -52,22 +42,12 @@ class AdmixController:
     def importData(self):
 
         # The following is used to create the an open file dialogue box for the data file
-=======
-        self.column = 4
-
-    def importData(self):
-
-        # The following is used to create the an open file dialogue box
-
-
->>>>>>> origin/Nandi
         frame = wx.Frame(None, -1, 'win.py')
         frame.SetSize(0, 0, 200, 50)
 
         # Creates the open file dialogue
         openDataFileDlg = wx.FileDialog(frame, "Open Data File", wildcard="Q data files (*.1;*.2;*.3;*.4;*.5;*.6;*.7)|*.1;*.2;*.3;*.4;*.5;*.6;*.7", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
 
-<<<<<<< HEAD
         # openDataFileDlg.ShowModal()
 
 
@@ -100,39 +80,11 @@ class AdmixController:
             wx.LogError("Cannot open file '%s'." % self.dataPath)
 
         openDataFileDlg.Destroy()
-=======
-
-        openDataFileDlg.ShowModal()
-
-        # Store the path received from this dialogue
-        dataPath = openDataFileDlg.GetPath()
-
-        openDataFileDlg.Destroy()
-
-        # Here we begin reading data from the two files the user has selected
-        self.dataFile = open(dataPath, "r")
-
-        line = self.dataFile.readline()
-        self.height = len(line.split())  # splits line into words separated by spans of white space
-
-        self.dataFile.seek(0)  # takes marker back to byte 0
-
-        # Width is the total number of rows in the file
-        self.width = 0
-        for line in self.dataFile:
-            self.width = self.width + 1
-
-        self.dataFile.seek(0)  # Starts reading the file from the beginning again
->>>>>>> origin/Nandi
 
 
     def importPhe(self):
 
-<<<<<<< HEAD
         # The following is used to create the an open file dialogue box for the phe file
-=======
-        # The following is used to create the two open file dialogue boxes
->>>>>>> origin/Nandi
 
         frame = wx.Frame(None, -1, 'win.py')
         frame.SetSize(0, 0, 200, 50)
@@ -140,23 +92,16 @@ class AdmixController:
         # Creates the open file dialogue for the phe file
         openPheFileDlg = wx.FileDialog(frame, "Open Data File", wildcard="phe files (*.phe)|*.phe", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
 
-<<<<<<< HEAD
         # Original Open Phe File Function #FearOfCommitment
         '''openPheFileDlg.ShowModal()
 
         # Store the path received from this dialogue
         self.phePath = openPheFileDlg.GetPath()
-=======
-        openPheFileDlg.ShowModal()
-        # print(openFileDlg.GetPath())
-        # Store the path received from this dialogue
-        phePath = openPheFileDlg.GetPath()
->>>>>>> origin/Nandi
 
         openPheFileDlg.Destroy()
 
         # Here we begin reading data from the two files the user has selected
-<<<<<<< HEAD
+        
         self.pheFile = open(self.phePath, "r")'''
 
 
@@ -174,9 +119,6 @@ class AdmixController:
             wx.LogError("Cannot open file " + self.phePath + "." % self.phePath)
 
         openPheFileDlg.Destroy()
-=======
-        self.pheFile = open(phePath, "r")
->>>>>>> origin/Nandi
 
     def populateMatrix(self):
 
@@ -294,8 +236,6 @@ class AdmixController:
             # We create an array with group names and their starting positions
             self.groupList.append([itemCount, collection])
 
-<<<<<<< HEAD
-
     # Nandi, call this function to change a single colour on the graph
     # The number represents the index of the colour being changed in our choiceList list
     def changeColour(self, colNum):
@@ -330,23 +270,15 @@ class AdmixController:
 
 
     def createGraph(self,col):
-=======
-    def drawGraph(self):
->>>>>>> origin/Nandi
 
         # Here we actually construct the graph to be shown==============================================================
         x = [x for x in range(self.width)]
 
         fig, ax = plt.subplots()
-<<<<<<< HEAD
+
 
         ax.stackplot(x, self.sortedMatrix, colors=self.colourPal,
                      alpha=self.graphAlpha)  # Defines the size of our x axis and our y values
-=======
-        print(x)
-        print(self.sortedMatrix)
-        ax.stackplot(x, self.sortedMatrix)  # Defines the size of our x axis and our y values
->>>>>>> origin/Nandi
 
         # Here we label the x axis with the group names and their adjusted positions
         # (positions must be adjusted to the centre of the group)
@@ -365,9 +297,6 @@ class AdmixController:
         self.dataFile.close()
         self.pheFile.close()
 
-
-
-<<<<<<< HEAD
     def drawGraph(self, col):
 
         self.populateMatrix()
@@ -403,8 +332,5 @@ class AdmixController:
                     self.saveGraph(saveFile)
             except IOError:
                 wx.LogError("Cannot save current data in file " + savePath + "." % savePath)
-
-=======
->>>>>>> origin/Nandi
 
 # admix = AdmixController(4)

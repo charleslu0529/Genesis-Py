@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99a80839-9300-43a8-8ab8-3627a28425f2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_CHANGELOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_CHANGELOG.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/Admixture/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Admixture/Graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/PCA/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/PCA/pca.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/PCA/pca.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,8 +16,8 @@
       <file leaf-file-name="pca.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="34" lean-forward="true" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+            <state relative-caret-position="375">
+              <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -34,32 +25,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Graph.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Graph/Graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Graph.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Graph/Admixture/Graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdmixtureInstance.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdmixtureInstance.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+            <state relative-caret-position="2578">
+              <caret line="333" column="92" selection-start-line="333" selection-start-column="92" selection-end-line="333" selection-end-column="92" />
               <folding>
-                <marker date="1526156719092" expanded="true" signature="1193:1203" ph="..." />
-                <marker date="1526156719092" expanded="true" signature="1343:1353" ph="..." />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,11 +40,8 @@
       <file leaf-file-name="Import_PCA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="285">
               <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -151,6 +120,7 @@
         <option value="$PROJECT_DIR$/Graph/PCA/pca.py" />
         <option value="$PROJECT_DIR$/Graph/Graph.py" />
         <option value="$PROJECT_DIR$/Graph/Admixture/Graph.py" />
+        <option value="$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py" />
       </list>
     </option>
   </component>
@@ -491,6 +461,25 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24959569" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.62102425" weight="0.3174971" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18867925" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39976826" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.37897575" side_tool="true" weight="0.4611819" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32908458" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -508,7 +497,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -533,9 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,13 +648,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
+    <entry file="file://$PROJECT_DIR$/Graph/Admixture/Graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/Graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -684,36 +674,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="34" lean-forward="true" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+        <state relative-caret-position="375">
+          <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="2578">
+          <caret line="333" column="92" selection-start-line="333" selection-start-column="92" selection-end-line="333" selection-end-column="92" />
           <folding>
-            <marker date="1526156719092" expanded="true" signature="1193:1203" ph="..." />
-            <marker date="1526156719092" expanded="true" signature="1343:1353" ph="..." />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graph/Graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graph/Admixture/Graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
