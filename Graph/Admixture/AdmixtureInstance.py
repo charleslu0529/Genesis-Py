@@ -43,7 +43,7 @@ class AdmixController:
 
     def importData(self):
 
-        # The following is used to create the an open file dialogue box for the data file
+        # The following is used to create the open file dialogue box for the data file
         frame = wx.Frame(None, -1, 'win.py')
         frame.SetSize(0, 0, 200, 50)
 
@@ -86,7 +86,7 @@ class AdmixController:
 
     def importPhe(self):
 
-        # The following is used to create the an open file dialogue box for the phe file
+        # The following is used to create an open file dialogue box for the phe file
 
         frame = wx.Frame(None, -1, 'win.py')
         frame.SetSize(0, 0, 200, 50)
@@ -218,7 +218,7 @@ class AdmixController:
         self.pheFile.seek(0)
 
         # We're creating an array with group names and their starting positions
-        self.groupList = [[0, ""]]
+        self.groupList = [[0, "start"]]
         self.sortedMatrix = [[0 for x in range(self.width)] for y in range(self.height)]
 
         itemCount = 0
@@ -260,7 +260,7 @@ class AdmixController:
         # This reconstructs the graph, but the data in the graph is not changed.
         # The overall functionality can only be tested with the GUI. When the GUI is integrated I will test this.
         # Hopefully we can get that done soon.
-        self.createGraph(self.column)
+        self.createGraph()
 
 
 
@@ -268,10 +268,10 @@ class AdmixController:
     def changeAlpha(self, alpha):
 
         self.graphAlpha = alpha
-        self.createGraph(self.column)
+        self.createGraph()
 
 
-    def createGraph(self,col):
+    def createGraph(self):
 
         # Here we actually construct the graph to be shown==============================================================
         x = [x for x in range(self.width)]
@@ -304,18 +304,10 @@ class AdmixController:
 
         self.populateMatrix()
         self.sortGroups(col)  # note that col is the column we wish to use in the phe file
-        self.createGraph(col)
+        self.createGraph()
 
 
-    #def saveGraph(self):
-
-    def saveGraph(self, saveFile):
-
-        print("I\'m saving this booi!!!!")
-
-        saveFile.close()
-
-
+    # This must be called when someone clicks the save button and you've determined that they are trying to save an admix file.
     def OnSaveAs(self):
 
         # Here we construct a save as dialogue box
@@ -337,4 +329,113 @@ class AdmixController:
                 wx.LogError("Cannot save current data in file " + savePath + "." % savePath)
 
 
-# admix = AdmixController(4)
+
+    def saveGraph(self, saveFile):
+
+        # This will tell the load function which type of graph to construct
+        saveFile.write("admix\n")
+
+        saveFile.write(str(self.width))
+        saveFile.write("\n")
+        saveFile.write(str(self.height))
+        saveFile.write("\n")
+
+        # Stores values from the sorted array
+        for h in range(self.height):
+            for w in range(self.width):
+                saveFile.write(str(self.sortedMatrix[h][w]))
+                saveFile.write(" ")
+            saveFile.write("\n")
+
+        # saveFile.write(self.sortedMatrix)
+        # saveFile.write("\n")
+
+
+        # Stores the current colour set
+        for colours in self.colourPal:
+            saveFile.write(colours)
+            saveFile.write(" ")
+        saveFile.write("\n")
+
+
+        saveFile.write(str(self.graphAlpha))
+        saveFile.write("\n")
+
+        saveFile.write(str(self.groupCount))
+        saveFile.write("\n")
+
+
+        # the extra 1 comes from the dummy group at the start of the list
+        for group in range(self.groupCount + 1):
+            saveFile.write(str(self.groupList[group][0]))
+            saveFile.write(" ")
+            saveFile.write(self.groupList[group][1])
+            saveFile.write("\n")
+
+
+        saveFile.close()
+
+
+
+    # This function must be called when the user clicks the load button and the file being loaded is an admix graph
+    def OnLoad(self):
+
+        # The following is used to create the open file dialogue for .GEN files that were saved previously
+        frame = wx.Frame(None, -1, 'win.py')
+        frame.SetSize(0, 0, 200, 50)
+
+        # Creates the open file dialogue for the gen file
+        openGenFileDlg = wx.FileDialog(frame, "Open GEN File", wildcard="gen files (*.gen)|*.gen",
+                                           style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
+
+        if openGenFileDlg.ShowModal() == wx.ID_CANCEL:
+            return  # the user changed their mind, thus we will not do anything
+
+        # Store the path received from this dialogue
+        genPath = openGenFileDlg.GetPath()
+        try:
+            # Here we begin reading data from the file the user has selected
+            genFile = open(genPath, "r")
+            self.LoadGraph(genFile)
+
+        except IOError:
+            wx.LogError("Cannot open file " + genPath + "." % genPath)
+
+            openGenFileDlg.Destroy()
+
+
+    def LoadGraph(self, genFile):
+
+        #saveFile.write(str(self.width))
+        graphType = genFile.readline()
+
+        self.width = int(genFile.readline())
+        self.height = int(genFile.readline())
+
+        # initialise matrices to correct size
+        self.Matrix = [[0 for x in range(self.width)] for y in range(self.height)]
+        self.sortedMatrix = [[0 for x in range(self.width)] for y in range(self.height)]
+
+
+        for h in range(self.height):
+            currentLine = genFile.readline().split()
+            for w in range(self.width):
+                self.sortedMatrix[h][w] = float(currentLine[w])
+
+        self.colourPal = genFile.readline().split()
+
+        self.graphAlpha = float(genFile.readline())
+
+        self.groupCount = int(genFile.readline())
+
+        self.groupList = []
+
+        for group in range(self.groupCount + 1):
+            currentLine = genFile.readline().split()
+
+            self.groupList.append([int(currentLine[0]), currentLine[1]])
+
+
+        self.createGraph()
+
+        genFile.close()
