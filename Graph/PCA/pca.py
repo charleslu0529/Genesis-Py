@@ -28,7 +28,6 @@ class PCAGraph:
         wxFileChoice.ShowModal()
         filename = wxFileChoice.GetPath()
         self.evec_file = open(filename, "r+")
-
         wxFileChoice.Destroy()
 
     def importPheFile(self):
@@ -38,7 +37,7 @@ class PCAGraph:
         wxFileChoice.ShowModal()
         filename = wxFileChoice.GetPath()
         self.phe_file = open(filename, "r+")
-
+        
         wxFileChoice.Destroy()
 
     def readFiles(self):

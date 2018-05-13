@@ -1,4 +1,0 @@
-Genesis-Py GUI Changelog
-
-*****v0.0.1b(week 11)*****
-- Added prototype frame
