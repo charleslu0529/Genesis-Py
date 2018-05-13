@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99a80839-9300-43a8-8ab8-3627a28425f2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Graph/PCA/pca.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/PCA/pca.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pca.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pca.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="110" column="24" lean-forward="true" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+            <state relative-caret-position="225">
+              <caret line="60" column="65" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="65" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -27,20 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Graph.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Graph/Graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AdmixtureInstance.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="51" column="32" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="32" />
+            <state relative-caret-position="285">
+              <caret line="81" column="52" lean-forward="true" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -48,8 +38,8 @@
       <file leaf-file-name="Import_PCA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="100" column="47" lean-forward="true" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+            <state relative-caret-position="376">
+              <caret line="102" column="47" lean-forward="true" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -60,8 +50,8 @@
       <file leaf-file-name="Import_Admix.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="99" column="36" lean-forward="true" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+            <state relative-caret-position="1500">
+              <caret line="100" column="36" lean-forward="true" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -69,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Genesis-Py_v0.0.8a.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Genesis-Py_v0.0.8a.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+            <state relative-caret-position="380">
+              <caret line="61" column="43" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="43" />
               <folding>
                 <element signature="e#50#59#0" expanded="true" />
               </folding>
@@ -149,7 +139,6 @@
         <option value="$PROJECT_DIR$/Graph/Admixture/__init_.py" />
         <option value="$PROJECT_DIR$/Graph/Admixture/__init__.py" />
         <option value="$PROJECT_DIR$/Graph/__init__.py" />
-        <option value="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" />
         <option value="$PROJECT_DIR$/View_Frames/__init__.py" />
         <option value="$PROJECT_DIR$/Graph/Graph.py" />
         <option value="$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py" />
@@ -157,6 +146,7 @@
         <option value="$PROJECT_DIR$/Genesis-Py_v0.0.6a.py" />
         <option value="$PROJECT_DIR$/GUI_CHANGELOG.txt" />
         <option value="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" />
+        <option value="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" />
         <option value="$PROJECT_DIR$/Graph/PCA/pca.py" />
       </list>
     </option>
@@ -724,6 +714,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="102" column="47" lean-forward="true" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="36" lean-forward="true" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Graph/Graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -731,49 +741,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#50#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="99" column="36" lean-forward="true" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="100" column="47" lean-forward="true" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="32" />
+        <state relative-caret-position="285">
+          <caret line="81" column="52" lean-forward="true" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="110" column="24" lean-forward="true" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+        <state relative-caret-position="225">
+          <caret line="60" column="65" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="65" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="61" column="43" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="43" />
+          <folding>
+            <element signature="e#50#59#0" expanded="true" />
           </folding>
         </state>
       </provider>

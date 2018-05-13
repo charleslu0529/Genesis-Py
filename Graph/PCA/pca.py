@@ -42,24 +42,23 @@ class PCAGraph:
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
         # print("Select evec file\n")
         wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Evec file", wildcard="evec files (*.evec)|*.evec", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
-        wxFileChoice.ShowModal()
+
+        if wxFileChoice.ShowModal() == wx.ID_CANCEL:
+            return
 
         self.evecFilePath = wxFileChoice.GetPath()
-        print("evecFilePath = ",self.evecFilePath)
-        self.evec_file = open(self.evecFilePath, "r+")
+        # wxFileChoice.ShowModal()
+        try:
+            self.evec_file = open(self.evecFilePath, "r+")
+            line = self.evec_file.readline()
+            data = line.split()
+            self.choiceLen = len(data)
 
-
-        line = self.evec_file.readline()
-        data = line.split()
-        self.choiceLen = len(data)
-
-        for x in range(1, self.choiceLen):
-            label = "PCA " + str(x)
-            self.choiceList.append(label)
-
-        filename = wxFileChoice.GetPath()
-        self.evec_file = open(filename, "r+")
-
+            for x in range(1, self.choiceLen):
+                label = "PCA " + str(x)
+                self.choiceList.append(label)
+        except IOError:
+            wx.LogError("Cannot open file '%s'." % self.dataPath)
 
         wxFileChoice.Destroy()
 
