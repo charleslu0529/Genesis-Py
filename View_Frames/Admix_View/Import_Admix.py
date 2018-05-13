@@ -32,15 +32,15 @@ class Admix_Import_View(wx.Frame):
         self.sizer.Add(butt_import_data, pos=(0,0), flag=wx.LEFT, border=10)
         self.Bind(wx.EVT_BUTTON, self.admix_import_data, butt_import_data)
 
-        disp_data_import_loc = wx.TextCtrl(self.panel, value = "", style = wx.TE_READONLY) # file path display
-        self.sizer.Add(disp_data_import_loc, pos=(0,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
+        self.disp_data_import_loc = wx.TextCtrl(self.panel, value = "", style = wx.TE_READONLY) # file path display
+        self.sizer.Add(self.disp_data_import_loc, pos=(0,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
         butt_import_phe = wx.Button(self.panel, label="Import .phe file:") # button select phe import location
         self.sizer.Add(butt_import_phe, pos=(1,0), flag=wx.LEFT, border=10)
         self.Bind(wx.EVT_BUTTON, self.admix_import_phe, butt_import_phe)
 
-        disp_phe_import_loc = wx.TextCtrl(self.panel, value = "", style = wx.TE_READONLY) # file path display
-        self.sizer.Add(disp_phe_import_loc, pos=(1,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
+        self.disp_phe_import_loc = wx.TextCtrl(self.panel, value = "", style = wx.TE_READONLY) # file path display
+        self.sizer.Add(self.disp_phe_import_loc, pos=(1,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
         self.dropDownBox = wx.Choice(self.panel, choices=self.choiceList, style=0, name="Column Selection")
         self.sizer.Add(self.dropDownBox, pos=(2, 0), flag=wx.LEFT, border=10)
@@ -65,8 +65,14 @@ class Admix_Import_View(wx.Frame):
     def admix_import_data(self, event):
         AdmixCont.importData(AdmixCont)
 
+        # This writes the file path into the display box next to the import button
+        self.disp_data_import_loc.write(AdmixCont.getDataPath(AdmixCont))
+
     def admix_import_phe(self, event):
         AdmixCont.importPhe(AdmixCont)
+
+        # This writes the file path into the display box next to the import button
+        self.disp_phe_import_loc.write(AdmixCont.getPhePath(AdmixCont))
 
         self.choiceList = AdmixCont.getChoiceList(AdmixCont)
 
