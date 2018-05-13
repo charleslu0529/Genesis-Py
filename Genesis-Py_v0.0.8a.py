@@ -4,6 +4,8 @@
 import os
 import wx
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
 
 APP_EXIT = 1
 name = 'Genesis-Py_v0.0.8a' # GenesisPy version name
@@ -13,11 +15,32 @@ from View_Frames.PCA_View.Import_PCA import PCA_Import_View as PCAImport
 from View_Frames.Future_Features import Msg_Feature_Frame as FSM
 
 
+class CanvasPanel(wx.Panel):
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent)
+        self.figure = Figure()
+        # self.axes = self.figure.add_subplot(111)
+        self.canvas = FigureCanvas(self, -1, self.figure)
+       # self.sizer = wx.BoxSizer(wx.VERTICAL)
+       # self.sizer.Add(self.canvas, 1, wx.CENTER | wx.TOP | wx.GROW)
+        #self.SetSizer(self.sizer)
+       # self.Fit()
+
+    # def draw(self):
+    #     t = arange(0.0, 3.0, 0.01)
+    #     s = sin(2 * pi * t)
+    #     self.axes.plot(t, s)
+
 class App_Main_Frame(wx.Frame):
     def __init__(self, *args, **kwargs):
         super(App_Main_Frame, self).__init__(*args, **kwargs)
 
+        self.graphPanel = wx.Panel()
+        self.graphPanel.axes = None
+
         self.InitUI()
+
+
 
 
     def InitUI(self):
@@ -26,27 +49,35 @@ class App_Main_Frame(wx.Frame):
 
         self.SetSize((800, 600))
         self.SetTitle(name)
-        self.Centre()
+        self.Centre
 
         ###PANEL###
         panel = wx.Panel(self)
-        sizer = wx.GridBagSizer(4, 4)
+        self.sizer = wx.GridBagSizer(4, 4)
 
-        text = wx.StaticText(panel, label="Panel Test") # Graphing output
-        sizer.Add(text, pos = (0, 0), flag=wx.TOP|wx.LEFT|wx.BOTTOM, border=5)
+        self.graphPanel = wx.Panel(panel)
+        self.graphPanel.fig = Figure()
+        self.graphPanel.canvas = FigureCanvas(self.graphPanel, -1, self.graphPanel.fig)
+        self.graphPanel.axes = self.graphPanel.fig.add_subplot(111)
 
-        text_ctl = wx.TextCtrl(panel)
-        sizer.Add(text_ctl, pos=(1,0), span=(1,5), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
-        buttonOK = wx.Button(panel, label="Ok", size=(90,28))
-        sizer.Add(buttonOK, pos=(3,3))
-        buttonClose = wx.Button(panel, label="Close", size=(90,28))
-        sizer.Add(buttonClose, pos=(3,4), flag=wx.RIGHT|wx.BOTTOM, border=10)
-        
+        self.sizer.Add(self.graphPanel, pos=(0, 0), flag=wx.TOP|wx.LEFT|wx.BOTTOM|wx.RIGHT,  border=5, span=(4,4))
 
-        sizer.AddGrowableCol(1)
-        sizer.AddGrowableRow(2)
-        panel.SetSizer(sizer)
+        # text = wx.StaticText(panel, label="") # Graphing output
+        # sizer.Add(text, pos = (0, 0), flag=wx.TOP|wx.LEFT|wx.BOTTOM, border=5)
+        #
+        # text_ctl = wx.TextCtrl(panel)
+        # sizer.Add(text_ctl, pos=(1,0), span=(1,5), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
+        #
+        # buttonOK = wx.Button(panel, label="Ok", size=(90,28))
+        # sizer.Add(buttonOK, pos=(3,3))
+        # buttonClose = wx.Button(panel, label="Close", size=(90,28))
+        # sizer.Add(buttonClose, pos=(3, 4), flag=wx.RIGHT|wx.BOTTOM, border=10)
+
+        self.sizer.AddGrowableCol(1)
+        self.sizer.AddGrowableRow(2)
+        panel.SetSizer(self.sizer)
+        # self.graphPanel.SetSizer(self.sizer)
 
 
         #####TOOLBAR#####
@@ -132,6 +163,8 @@ class App_Main_Frame(wx.Frame):
 
     def Admix_Import(self, e):
         self.child = AdmixImport(self, title="Import Admix Data")
+        # AdmixImport.axes = self.graphPanel.axes
+
         self.child.Show()
 
     def PCA_Import(self, e):

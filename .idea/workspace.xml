@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="99a80839-9300-43a8-8ab8-3627a28425f2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/PCA/pca.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/PCA/pca.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,8 +61,8 @@
       <file leaf-file-name="Genesis-Py_v0.0.8a.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="61" column="43" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="43" />
+            <state relative-caret-position="1350">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#50#59#0" expanded="true" />
               </folding>
@@ -89,6 +88,7 @@
       <find>geoGroup_micro</find>
       <find>colours</find>
       <find>choiceList</find>
+      <find>save</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -146,8 +146,8 @@
         <option value="$PROJECT_DIR$/Genesis-Py_v0.0.6a.py" />
         <option value="$PROJECT_DIR$/GUI_CHANGELOG.txt" />
         <option value="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" />
-        <option value="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" />
         <option value="$PROJECT_DIR$/Graph/PCA/pca.py" />
+        <option value="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" />
       </list>
     </option>
   </component>
@@ -760,8 +760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="43" />
+        <state relative-caret-position="1350">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#50#59#0" expanded="true" />
           </folding>
