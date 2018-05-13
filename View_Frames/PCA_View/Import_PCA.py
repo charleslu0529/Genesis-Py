@@ -28,7 +28,9 @@ class PCA_Import_View(wx.Frame):
         self.SetTitle('Import PCA Files')
         self.Centre()
 
+
     ###Panel###
+
 
         self.butt_import_evec = wx.Button(self.panel, label="Import .evec file:") # button select data import location
         self.sizer.Add(self.butt_import_evec, pos=(0,0), flag=wx.LEFT, border=10)
@@ -109,3 +111,4 @@ class PCA_Import_View(wx.Frame):
         self.drop_down_box_1.Clear()
         self.drop_down_box_2.Clear()
         self.Close()
+
