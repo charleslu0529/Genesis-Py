@@ -1,16 +1,17 @@
-
-# Genesis-Py v0.0.6a
+# Genesis-Py v0.0.8a
 # UI Design: Nandi, 1064787
 
 import os
 import wx
-APP_EXIT = 1
+import matplotlib.pyplot as plt
 
-name = 'Genesis-Py_v0.0.6a' # GenesisPy version name
+APP_EXIT = 1
+name = 'Genesis-Py_v0.0.8a' # GenesisPy version name
 
 from View_Frames.Admix_View.Import_Admix import Admix_Import_View as AdmixImport
 from View_Frames.PCA_View.Import_PCA import PCA_Import_View as PCAImport
 from View_Frames.Future_Features import Msg_Feature_Frame as FSM
+
 
 class App_Main_Frame(wx.Frame):
     def __init__(self, *args, **kwargs):
@@ -25,7 +26,7 @@ class App_Main_Frame(wx.Frame):
 
         self.SetSize((800, 600))
         self.SetTitle(name)
-        self.Centre
+        self.Centre()
 
         ###PANEL###
         panel = wx.Panel(self)
@@ -41,6 +42,7 @@ class App_Main_Frame(wx.Frame):
         sizer.Add(buttonOK, pos=(3,3))
         buttonClose = wx.Button(panel, label="Close", size=(90,28))
         sizer.Add(buttonClose, pos=(3,4), flag=wx.RIGHT|wx.BOTTOM, border=10)
+        
 
         sizer.AddGrowableCol(1)
         sizer.AddGrowableRow(2)
@@ -150,4 +152,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

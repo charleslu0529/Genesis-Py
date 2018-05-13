@@ -8,17 +8,21 @@ from PCA import pca
 # create instance of graph then call function to populate
 
 # Drawgraph(typeOfGraph, graphInstance)
-def DrawGraph(typeOFGraph):
-    if typeOFGraph == "Admix":
-        pass
-    elif typeOFGraph == "PCA":
-        pcaGraph = pca.PCAGraph()
-        pcaGraph.__init__()
-        pcaGraph.importEvecFile()
-        pcaGraph.importPheFile()
-        pcaGraph.readFiles()
-        pcaGraph.choosePCA()
-        pcaGraph.initGroupColour()
-        pcaGraph.plotScatter()
 
-DrawGraph("PCA")
+def draw_graph(type_of_graph):
+
+    if type_of_graph == "Admix":
+        pass
+    elif type_of_graph == "PCA":
+        pca_graph = pca.PCAGraph()
+        pca_graph.__init__()
+        pca_graph.importEvecFile()
+        pca_graph.importPheFile()
+        pca_graph.readFiles()
+        pca_graph.choosePCA(0, 4)
+        pca_graph.initGroupColour()
+        pca_graph.plotScatter()
+        pca_graph.pickColour("EXM")
+
+
+draw_graph("PCA")
