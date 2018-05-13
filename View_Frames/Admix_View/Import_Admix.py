@@ -66,15 +66,13 @@ class Admix_Import_View(wx.Frame):
     def admix_import_data(self, event):
         AdmixCont.importData(AdmixCont)
 
-        # This clears and writes the file path into the display box next to the import button
-        self.disp_data_import_loc.Clear()
+        # This writes the file path into the display box next to the import button
         self.disp_data_import_loc.write(AdmixCont.getDataPath(AdmixCont))
 
     def admix_import_phe(self, event):
         AdmixCont.importPhe(AdmixCont)
 
-        # This clears and writes the file path into the display box next to the import button
-        self.disp_phe_import_loc.Clear()
+        # This writes the file path into the display box next to the import button
         self.disp_phe_import_loc.write(AdmixCont.getPhePath(AdmixCont))
 
         self.choiceList = AdmixCont.getChoiceList(AdmixCont)
