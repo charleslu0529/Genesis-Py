@@ -21,6 +21,10 @@ class AdmixController:
         self.phePath = ""
         self.choiceList = []
 
+        # These check whether the user has actually loaded files or not
+        self.pheSelected = False
+        self.dataSelected = False
+
         self.Matrix = []
         self.sortedMatrix = []
 
@@ -40,6 +44,15 @@ class AdmixController:
         # This gets the default colour palette for the graph
         self.colourPal = plt.rcParams['axes.prop_cycle'].by_key()['color']
         self.graphAlpha = 1
+
+    def getChoiceList(self):
+        return self.choiceList
+
+    def getDataSelected(self):
+        return self.dataSelected
+
+    def getPheSelected(self):
+        return self.pheSelected
 
     def importData(self):
 
@@ -65,10 +78,6 @@ class AdmixController:
             line = self.dataFile.readline()
             self.height = len(line.split())  # splits line into words separated by spans of white space
 
-            self.choiceList = []
-            for col in range(self.height):
-                self.choiceList.append("Col " + str(col))
-
             self.dataFile.seek(0)  # takes marker back to byte 0
 
             # Width is the total number of rows in the file
@@ -77,6 +86,8 @@ class AdmixController:
                 self.width = self.width + 1
 
             self.dataFile.seek(0)  # Starts reading the file from the beginning again
+
+            self.dataSelected = True
 
         except IOError:
             wx.LogError("Cannot open file '%s'." % self.dataPath)
@@ -115,6 +126,18 @@ class AdmixController:
         try:
             # Here we begin reading data from the file the user has selected
             self.pheFile = open(self.phePath, "r")
+
+            line = self.pheFile.readline()
+            height = len(line.split())  # splits line into words separated by spans of white space
+
+            self.choiceList = []
+            for col in range(height):
+                if col > 1:
+                    self.choiceList.append("Col " + str(col))
+
+            self.pheFile.seek(0)
+
+            self.pheSelected = True
 
         except IOError:
             wx.LogError("Cannot open file " + self.phePath + "." % self.phePath)
@@ -302,9 +325,9 @@ class AdmixController:
 
     def drawGraph(self, col):
 
-        self.populateMatrix()
-        self.sortGroups(col)  # note that col is the column we wish to use in the phe file
-        self.createGraph()
+        self.populateMatrix(self)
+        self.sortGroups(self, col)  # note that col is the column we wish to use in the phe file
+        self.createGraph(self)
 
 
     # This must be called when someone clicks the save button and you've determined that they are trying to save an admix file.

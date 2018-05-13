@@ -1,12 +1,22 @@
 import os
 import wx
+import sys
+
+from Graph.Admixture.AdmixtureInstance import AdmixController as AdmixCont
 
 class Admix_Import_View(wx.Frame):
+
+    choiceList = []
+
     def __init__(self, *args, **kwargs):
         super(Admix_Import_View, self).__init__(*args, **kwargs)
 
         self.ShowWindow()
 
+        AdmixCont.__init__(AdmixCont)
+
+        self.choiceList = ["None"]
+        self.colNum = 0
 
     def ShowWindow(self):
         self.SetSize((400, 300))
@@ -15,38 +25,76 @@ class Admix_Import_View(wx.Frame):
 
 
     ###Panel###
-        panel = wx.Panel(self)
-        sizer = wx.GridBagSizer(5, 4)
+        self.panel = wx.Panel(self)
+        self.sizer = wx.GridBagSizer(5, 4)
 
-        butt_import_data = wx.Button(panel, label="Import data file:") # button select data import location
-        sizer.Add(butt_import_data, pos=(0,0), flag=wx.LEFT, border=10)
-        #self.Bind(wx.EVT_BUTTON,)
+        butt_import_data = wx.Button(self.panel, label="Import data file:") # button select data import location
+        self.sizer.Add(butt_import_data, pos=(0,0), flag=wx.LEFT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.admix_import_data, butt_import_data)
 
-        disp_data_import_loc = wx.TextCtrl(panel, value = "", style = wx.TE_READONLY) # file path display
-        sizer.Add(disp_data_import_loc, pos=(0,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
+        disp_data_import_loc = wx.TextCtrl(self.panel, value = "", style = wx.TE_READONLY) # file path display
+        self.sizer.Add(disp_data_import_loc, pos=(0,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
-        butt_import_phe = wx.Button(panel, label="Import .phe file:") # button select phe import location
-        sizer.Add(butt_import_phe, pos=(1,0), flag=wx.LEFT, border=10)
-        #self.Bind(wx.)
+        butt_import_phe = wx.Button(self.panel, label="Import .phe file:") # button select phe import location
+        self.sizer.Add(butt_import_phe, pos=(1,0), flag=wx.LEFT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.admix_import_phe, butt_import_phe)
 
-        disp_phe_import_loc = wx.TextCtrl(panel, value = "", style = wx.TE_READONLY) # file path display
-        sizer.Add(disp_phe_import_loc, pos=(1,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
+        disp_phe_import_loc = wx.TextCtrl(self.panel, value = "", style = wx.TE_READONLY) # file path display
+        self.sizer.Add(disp_phe_import_loc, pos=(1,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
-        butt_ok = wx.Button(panel, label="Ok") # button continue generate graph
-        sizer.Add(butt_ok, pos=(4,2), flag=wx.RIGHT|wx.BOTTOM, border=10)
+        self.dropDownBox = wx.Choice(self.panel, choices=self.choiceList, style=0, name="Column Selection")
+        self.sizer.Add(self.dropDownBox, pos=(2, 0), flag=wx.LEFT, border=10)
 
-        butt_no = wx.Button(panel, label="Cancel") # button cancel and quit
-        sizer.Add(butt_no, pos=(4,3), flag=wx.RIGHT|wx.BOTTOM, border=10)
+        butt_ok = wx.Button(self.panel, label="Ok") # button continue generate graph
+        self.sizer.Add(butt_ok, pos=(4,2), flag=wx.RIGHT|wx.BOTTOM, border=10)
+        butt_ok.Bind(wx.EVT_BUTTON, self.completeImport)
+
+        butt_no = wx.Button(self.panel, label="Cancel") # button cancel and quit
+        self.sizer.Add(butt_no, pos=(4,3), flag=wx.RIGHT|wx.BOTTOM, border=10)
         butt_no.Bind(wx.EVT_BUTTON, self.on_quit)
 
-        sizer.AddGrowableCol(1)
-        sizer.AddGrowableRow(2)
-        panel.SetSizer(sizer)
+        self.sizer.AddGrowableCol(1)
+        self.sizer.AddGrowableRow(2)
+        self.panel.SetSizer(self.sizer)
 
 
-    def on_quit(self, e):
+    def on_quit(self, event):
+        self.dropDownBox.Clear()
         self.Close()
 
+    def admix_import_data(self, event):
+        AdmixCont.importData(AdmixCont)
+
+    def admix_import_phe(self, event):
+        AdmixCont.importPhe(AdmixCont)
+
+        self.choiceList = AdmixCont.getChoiceList(AdmixCont)
+
+        self.dropDownBox.Clear()
+        self.dropDownBox.Append(self.choiceList)
+
+    def completeImport(self, event):
+
+        self.colNum = self.dropDownBox.GetSelection() + 2
+
+        dataSelected = AdmixCont.getDataSelected(AdmixCont)
+        pheSelected = AdmixCont.getPheSelected(AdmixCont)
+
+        if dataSelected == True and pheSelected == True and self.colNum != 1:  #the value of colNum would be -1 if nothing was selected, but we add 2 to it to  get the correct column
+            AdmixCont.drawGraph(AdmixCont, self.colNum)
+
+        elif dataSelected == False or pheSelected == False:
+            errorMessage = wx.MessageDialog(None, "Please select both a data file and a .phe file",
+                                            caption="One of these files was not selected", style=1)
+            errorMessage.ShowModal()
+
+        elif self.colNum == 1:
+            errorMessage = wx.MessageDialog(None, "Please select a column to label with from the drop down",
+                                            caption="A column was not selected", style=1)
+            errorMessage.ShowModal()
+
+        self.dropDownBox.Clear()
+        self.Close()
 
     #def Open_file(self, event):
         #dial_file_dir = wx.FileDialogue(
