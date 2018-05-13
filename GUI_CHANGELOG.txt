@@ -21,5 +21,12 @@ Genesis-Py GUI Changelog
 - Improved file menu functionality
 
 *****v0.0.5a(week 13)*****
-- Added filesystem for GUI
-- Added external class support
+- Added file import frames
+- Imported classes
+
+*****v0.0.6a(week13)*****
+- Integrated file import frames
+
+*****v0.0.8a(week13)*****
+- Integration of plotting import functions
+- Buttons working

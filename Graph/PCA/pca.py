@@ -28,6 +28,7 @@ class PCAGraph:
         wxFileChoice.ShowModal()
         filename = wxFileChoice.GetPath()
         self.evec_file = open(filename, "r+")
+        wxFileChoice.Destroy()
 
     def importPheFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
@@ -36,6 +37,8 @@ class PCAGraph:
         wxFileChoice.ShowModal()
         filename = wxFileChoice.GetPath()
         self.phe_file = open(filename, "r+")
+        
+        wxFileChoice.Destroy()
 
     def readFiles(self):
         for line in self.evec_file:
