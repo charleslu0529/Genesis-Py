@@ -38,9 +38,13 @@ class PCAGraph:
         # print("Select evec file\n")
         wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Evec file", wildcard="evec files (*.evec)|*.evec", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
         wxFileChoice.ShowModal()
+
         self.evecFilePath = wxFileChoice.GetPath()
         print("evecFilePath = ",self.evecFilePath)
         self.evec_file = open(self.evecFilePath, "r+")
+
+        filename = wxFileChoice.GetPath()
+        self.evec_file = open(filename, "r+")
 
         wxFileChoice.Destroy()
 
@@ -49,6 +53,7 @@ class PCAGraph:
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
         wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Phenotype file", wildcard="phe files (*.phe)|*.phe", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
         wxFileChoice.ShowModal()
+
         self.pheFilePath = wxFileChoice.GetPath()
         self.phe_file = open(self.pheFilePath, "r+")
 
@@ -59,6 +64,9 @@ class PCAGraph:
         for x in range(1, self.choiceLen):
             self.choiceList.append(x)
 
+        filename = wxFileChoice.GetPath()
+        self.phe_file = open(filename, "r+")
+        
         wxFileChoice.Destroy()
 
     def readFiles(self):
