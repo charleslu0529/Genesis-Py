@@ -182,7 +182,6 @@ class AdmixController:
             # this counter keeps track of which line we're on currently
             count = count + 1
 
-
     def sortGroups(self, col):
         # Organising our group labels===========================================================================
         self.column = col

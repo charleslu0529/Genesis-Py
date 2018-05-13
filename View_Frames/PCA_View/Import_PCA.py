@@ -13,7 +13,7 @@ class PCA_Import_View(wx.Frame):
     def Show_Window(self):
         self.SetSize((400, 300))
         self.SetTitle('Import PCA Files')
-        self.Centre
+        self.Centre()
 
 
     ###Panel###

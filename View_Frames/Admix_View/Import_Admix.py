@@ -14,7 +14,7 @@ class Admix_Import_View(wx.Frame):
     def ShowWindow(self):
         self.SetSize((400, 300))
         self.SetTitle('Import Admix Files')
-        self.Centre
+        self.Centre()
 
 
     ###Panel###

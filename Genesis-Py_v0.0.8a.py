@@ -26,7 +26,7 @@ class App_Main_Frame(wx.Frame):
 
         self.SetSize((800, 600))
         self.SetTitle(name)
-        self.Centre
+        self.Centre()
 
         ###PANEL###
         panel = wx.Panel(self)
