@@ -55,6 +55,7 @@ class PCA_Import_View(wx.Frame):
     def PCA_import_evec(self, event):
         PCACont.importEvecFile(self)
 
+
     def PCA_import_phe(self, event):
         PCACont.importPheFile(self)
 

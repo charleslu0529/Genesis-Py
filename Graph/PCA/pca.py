@@ -16,7 +16,10 @@ class PCAGraph:
         self.eigenValues = []
         self.controlList = []
         self.number_of_pca = 0
+        self.choice_1 = 0
+        self.choice_2 = 0
         self.choiceLen = None
+        self.graphType = "PCA"
         # these are the column choices from the phenotype file. to get data you will need to run readFile()
         self.choiceList = []
 
@@ -108,7 +111,7 @@ class PCAGraph:
 
         self.colours = []
 
-        print("len(idList) = ", len(self.idList), "\n")
+        # print("len(idList) = ", len(self.idList), "\n")
         for value in range(0, len(self.idList)):
 
             id = self.idList[value].split(":")
@@ -202,9 +205,95 @@ class PCAGraph:
         self.evec_file.close()
         self.phe_file.close()
 
+    def LoadGraph(self, genFile):
+        self.__init__()
+
+        self.graphType = genFile.readline()
+
+        num_of_pca = genFile.readline()
+        num_of_phe = genFile.readline()
+
+        for x in range(1, num_of_pca):
+            listed_line = genFile.readline().split(",")
+            self.pca_evec_entries[listed_line[0]] = listed_line[1]
+
+        for x in range(1, num_of_phe):
+            listed_line = genFile.readline().split(",")
+            self.phe_entries[listed_line[0]] = listed_line[1]
+
+        self.colours = genFile.readline().split(",")
+
+        self.controlList = genFile.readline().split(",")
+
+        self.choice_1 = genFile.readline()
+
+        self.choice_2 = genFile.readline()
+
+        self.idList = genFile.readline().split(",")
+
+        self.evecFilePath = genFile.readline()
+
+        self.pheFilePath = genFile.readline()
+
+        self.plotScatter()
+
+        genFile.close()
+
     def saveGraph(self, saveFile):
 
-        saveFile.writelines()
+        saveFile.write("PCA\n")
+
+        saveFile.write(len(self.pca_evec_entries))
+        saveFile.write("\n")
+        saveFile.write(len(self.phe_entries))
+        saveFile.write("\n")
+        pca_entries_keys = self.pca_evec_entries.keys()
+        pca_entries_values = self.pca_evec_entries.keys()
+
+        for idx, values in pca_entries_keys:
+            saveFile.write(pca_entries_keys[idx], ",", pca_entries_values[idx], "\n")
+
+        phe_entries_keys = self.phe_entries.keys()
+        phe_entries_values = self.phe_entries.values()
+
+        for idx, values in phe_entries_keys:
+            saveFile.write(phe_entries_keys[idx], ",", phe_entries_values[idx], "\n")
+
+        group_colour_keys = self.groupColour.keys()
+        group_colour_values = self.groupColour.values()
+
+        for idx, values in group_colour_keys:
+            saveFile.write(group_colour_keys[idx], ",", group_colour_values[idx], "\n")
+
+        for idx, value in self.colours:
+            if idx == 0:
+                saveFile.write(value)
+            else:
+                saveFile.write(",", value)
+        saveFile.write("\n")
+
+        for idx, value in self.controlList:
+            if idx == 0:
+                saveFile.write(value)
+            else:
+                saveFile.write(",", value)
+        saveFile.write("\n")
+
+        saveFile.write(self.choice_1)
+        saveFile.write("\n")
+        saveFile.write(self.choice_2)
+        saveFile.write("\n")
+
+        for idx,value in self.idList:
+            if idx == 0:
+                saveFile.write(value)
+            else:
+                saveFile.write(",", value)
+        saveFile.write("\n")
+
+        saveFile.write(self.evecFilePath)
+        saveFile.write("\n")
+        saveFile.write(self.pheFilePath)
 
         saveFile.close()
 
