@@ -25,6 +25,7 @@ Genesis-Py GUI Changelog
 - Imported classes
 
 *****v0.0.6a(week13)*****
+<<<<<<< HEAD
 - Integrated file import frames
 
 *****v0.0.8a(week13)*****

@@ -17,6 +17,7 @@ class Admix_Import_View(wx.Frame):
         self.Centre()
 
 
+
     ###Panel###
         panel = wx.Panel(self)
         sizer = wx.GridBagSizer(5, 4)
