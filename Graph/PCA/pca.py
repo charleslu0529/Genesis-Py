@@ -32,6 +32,11 @@ class PCAGraph:
         self.dotColour = np.random.rand(3, )
         self.groupColour = {}
 
+    def get_choice_list(self):
+        return self.choiceList
+    def get_number_of_pca(self):
+        return self.number_of_pca
+
     def importEvecFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
         wxFileChoiceFrame.SetSize(0, 0, 200, 50)
@@ -43,8 +48,18 @@ class PCAGraph:
         print("evecFilePath = ",self.evecFilePath)
         self.evec_file = open(self.evecFilePath, "r+")
 
+
+        line = self.evec_file.readline()
+        data = line.split()
+        self.choiceLen = len(data)
+
+        for x in range(1, self.choiceLen):
+            label = "PCA " + str(x)
+            self.choiceList.append(label)
+
         filename = wxFileChoice.GetPath()
         self.evec_file = open(filename, "r+")
+
 
         wxFileChoice.Destroy()
 
@@ -57,16 +72,6 @@ class PCAGraph:
         self.pheFilePath = wxFileChoice.GetPath()
         self.phe_file = open(self.pheFilePath, "r+")
 
-        line = self.evec_file.readline()
-        data = line.split()
-        self.choiceLen = len(data)
-
-        for x in range(1, self.choiceLen):
-            self.choiceList.append(x)
-
-        filename = wxFileChoice.GetPath()
-        self.phe_file = open(filename, "r+")
-        
         wxFileChoice.Destroy()
 
     def readFiles(self):
@@ -113,8 +118,8 @@ class PCAGraph:
         # wxFrame.Show()
 
         # use wxpython to create dropdown for pca choices to plot
-        self.choice_1 = self.choiceList[user_choice_1 - 1]
-        self.choice_2 = self.choiceList[user_choice_2 - 1]
+        self.choice_1 = user_choice_1 + 1
+        self.choice_2 = user_choice_2 + 1
 
     def initGroupColour(self):
 
@@ -189,6 +194,7 @@ class PCAGraph:
             # for key, value in self.groupColour.items():
             #     if self.colours[idx] == value:
             #         this_label = key
+        print("plotting with choice_1 = ", self.choice_1, " and choice_2 = ", self.choice_2)
         ax.scatter(self.pca_evec_entries[self.choice_1], self.pca_evec_entries[self.choice_2], alpha=1, c=self.colours, s=10)
         # legend_elements = []
         # for group in self.groupColour:
