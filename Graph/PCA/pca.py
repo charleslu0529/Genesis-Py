@@ -39,6 +39,7 @@ class PCAGraph:
         wxFileChoice = wx.FileDialog(wxFileChoiceFrame, "Open Evec file", wildcard="evec files (*.evec)|*.evec", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
         wxFileChoice.ShowModal()
         self.evecFilePath = wxFileChoice.GetPath()
+        print("evecFilePath = ",self.evecFilePath)
         self.evec_file = open(self.evecFilePath, "r+")
 
         wxFileChoice.Destroy()
