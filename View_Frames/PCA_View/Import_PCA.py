@@ -22,7 +22,9 @@ class PCA_Import_View(wx.Frame):
         self.SetTitle('Import PCA Files')
         self.Centre()
 
+
     ###Panel###
+
 
         self.butt_import_evec = wx.Button(self.panel, label="Import .evec file:") # button select data import location
         self.sizer.Add(self.butt_import_evec, pos=(0,0), flag=wx.LEFT, border=10)
@@ -65,4 +67,5 @@ class PCA_Import_View(wx.Frame):
         self.disp_phe_import_loc.write(self.pca_graph_instance.pheFilePath)
         # label = wx.StaticText(self.panel, label="PCA choice 1:", style=wx.ALIGN_CENTRE)
         # self.box.Add(label, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 10)
+
         
