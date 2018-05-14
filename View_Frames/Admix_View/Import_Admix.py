@@ -67,6 +67,7 @@ class Admix_Import_View(wx.Frame):
         AdmixCont.importData(AdmixCont)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         # This clears and writes the file path into the display box next to the import button
         self.disp_data_import_loc.Clear()
         self.disp_data_import_loc.write(AdmixCont.getDataPath(AdmixCont))
@@ -78,6 +79,11 @@ class Admix_Import_View(wx.Frame):
         self.disp_phe_import_loc.Clear()
         self.disp_phe_import_loc.write(AdmixCont.getPhePath(AdmixCont))
 
+=======
+    def admix_import_phe(self, event):
+        AdmixCont.importPhe(AdmixCont)
+
+>>>>>>> parent of fc8ba6e... Path text on import added
 =======
     def admix_import_phe(self, event):
         AdmixCont.importPhe(AdmixCont)
