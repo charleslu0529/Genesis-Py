@@ -218,6 +218,11 @@
               <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
               <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
+              <item name="Documentation" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -231,6 +236,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Documentation" />
       <recent name="$PROJECT_DIR$/Graph/Admixture" />
     </key>
   </component>
