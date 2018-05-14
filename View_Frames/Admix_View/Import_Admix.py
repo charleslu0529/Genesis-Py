@@ -21,11 +21,10 @@ class Admix_Import_View(wx.Frame):
     def ShowWindow(self):
         self.SetSize((400, 300))
         self.SetTitle('Import Admix Files')
-        self.Centre()
+        self.Centre
 
 
     ###Panel###
-
         self.panel = wx.Panel(self)
         self.sizer = wx.GridBagSizer(5, 4)
 
@@ -116,28 +115,6 @@ class Admix_Import_View(wx.Frame):
             #self.file_path = dial_file_dir.GetPath()
             #self.text_import_loc.SetValue(self.file_path)
 
-    def on_quit(self, e):
-        self.Close()
-
-    def admix_import_data(self, event):
-        AdmixCont.importData(self)
-
-    def admix_import_phe(self, event):
-        AdmixCont.importPhe(self)
-
-
-    #def Open_file(self, event):
-        #dial_file_dir = wx.FileDialogue(
-            #self, message="Choose your file",
-            #defaultDir = self.currentDirectory,
-            #defaultFile="",
-            #wildcard=wildcard,
-            #style=wx.FD_OPEN|wx.FD_CHANGE_DIR
-            #)
-
-        #if dial_file_dir.ShowModal == wx.ID_OK:
-            #self.file_path = dial_file_dir.GetPath()
-            #self.text_import_loc.SetValue(self.file_path)
 
         #butt_import_fam = wx.Button(panel, label="Import .phe file:") # button select fam import location
         #sizer.Add(butt_import_fam, pos=(2,0), flag=wx.LEFT, border=10)
@@ -146,8 +123,4 @@ class Admix_Import_View(wx.Frame):
         #sizer.Add(disp_fam_import_loc, pos=(2,1), span=(1,3), flag=wx.EXPAND|wx.LEFT|wx.RIGHT, border=5)
 
         #label_01 = wx.StaticText(panel, label="Import Settings")
-        #sizer.Add(label_01, pos=(2,0), flag=wx.LEFT, border=5)
-
-        
-
-        
+#sizer.Add(label_01, pos=(2,0), flag=wx.LEFT, border=5)
