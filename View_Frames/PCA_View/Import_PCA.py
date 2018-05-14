@@ -4,10 +4,10 @@ import wx
 from Graph.PCA.pca import PCAGraph as PCACont
 
 class PCA_Import_View(wx.Frame):
-    def __init__(self, *args, **kwargs):
+
+    def __init__(self,  *args, **kwargs):
         super(PCA_Import_View, self).__init__(*args, **kwargs)
         self.pca_graph_instance = PCACont()
-        self.panel = wx.Panel(self)
         self.sizer = wx.GridBagSizer(5, 4)
         self.butt_import_evec = None
         self.disp_evec_import_loc = None
@@ -21,6 +21,7 @@ class PCA_Import_View(wx.Frame):
         self.choice_2 = 0
         self.label = ""
         self.box = wx.BoxSizer(wx.VERTICAL)
+        self.panel = wx.Panel(self)
         self.Show_Window()
 
     def Show_Window(self):
