@@ -54,12 +54,6 @@ class AdmixController:
     def getPheSelected(self):
         return self.pheSelected
 
-    def getDataPath(self):
-        return self.dataPath
-
-    def getPhePath(self):
-        return self.phePath
-
     def importData(self):
 
         # The following is used to create the open file dialogue box for the data file
