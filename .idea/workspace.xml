@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a80839-9300-43a8-8ab8-3627a28425f2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/View_Frames/Colour_Customiser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_Frames/Setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/PCA/pca.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/PCA/pca.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" afterDir="false" />
-    </list>
+    <list default="true" id="99a80839-9300-43a8-8ab8-3627a28425f2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -225,11 +217,6 @@
             <path>
               <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
               <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="View_Frames" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -552,7 +539,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1002" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984326" visible="true" weight="0.18867925" />
       <window_info anchor="bottom" id="TODO" order="6" />
