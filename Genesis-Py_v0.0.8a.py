@@ -13,6 +13,7 @@ name = 'Genesis-Py_v0.0.8a' # GenesisPy version name
 from View_Frames.Admix_View.Import_Admix import Admix_Import_View as AdmixImport
 from View_Frames.PCA_View.Import_PCA import PCA_Import_View as PCAImport
 from View_Frames.Future_Features import Msg_Feature_Frame as FSM
+from View_Frames.Setting import Settings_Frame as SF
 
 
 class CanvasPanel(wx.Panel):
@@ -36,7 +37,9 @@ class App_Main_Frame(wx.Frame):
         super(App_Main_Frame, self).__init__(*args, **kwargs)
 
         self.graphPanel = wx.Panel()
+        self.graphPanel.fig = Figure()
         self.graphPanel.axes = None
+        self.panel = None
 
         self.InitUI()
 
@@ -49,13 +52,13 @@ class App_Main_Frame(wx.Frame):
 
         self.SetSize((800, 600))
         self.SetTitle(name)
-        self.Centre
+        self.Centre()
 
         ###PANEL###
-        panel = wx.Panel(self)
+        self.panel = wx.Panel(self)
         self.sizer = wx.GridBagSizer(4, 4)
 
-        self.graphPanel = wx.Panel(panel)
+        self.graphPanel = wx.Panel(self.panel)
         self.graphPanel.fig = Figure()
         self.graphPanel.canvas = FigureCanvas(self.graphPanel, -1, self.graphPanel.fig)
         self.graphPanel.axes = self.graphPanel.fig.add_subplot(111)
@@ -76,7 +79,7 @@ class App_Main_Frame(wx.Frame):
 
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableRow(2)
-        panel.SetSizer(self.sizer)
+        self.panel.SetSizer(self.sizer)
         # self.graphPanel.SetSizer(self.sizer)
 
 
@@ -106,7 +109,7 @@ class App_Main_Frame(wx.Frame):
         tool_bar_prime = toolbar.AddSeparator() # vertical separator
 
         tool_bar_settings = toolbar.AddTool(wx.ID_ANY, 'Settings', wx.Bitmap('./icons/settings.bmp')) # settings button
-        self.Bind(wx.EVT_TOOL, self.Show_FM, tool_bar_settings)
+        self.Bind(wx.EVT_TOOL, self.show_setting_dialogue, tool_bar_settings)
         
         tool_bar_search = toolbar.AddTool(wx.ID_ANY, 'Search', wx.Bitmap('./icons/search.bmp')) # search button
         self.Bind(wx.EVT_TOOL, self.Show_FM, tool_bar_search)
@@ -161,6 +164,10 @@ class App_Main_Frame(wx.Frame):
         self.child = FSM(self, title="Note")
         self.child.Show()
 
+    def show_setting_dialogue(self, e):
+        self.child = SF(self, title="Settings")
+        self.child.Show()
+
     def Admix_Import(self, e):
         self.child = AdmixImport(self, title="Import Admix Data")
         # AdmixImport.axes = self.graphPanel.axes
@@ -168,7 +175,7 @@ class App_Main_Frame(wx.Frame):
         self.child.Show()
 
     def PCA_Import(self, e):
-        self.child = PCAImport(self)
+        self.child = PCAImport(self, title="Import PCA Data")
         self.child.Show()
 
 

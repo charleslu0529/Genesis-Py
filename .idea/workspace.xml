@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99a80839-9300-43a8-8ab8-3627a28425f2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/View_Frames/Colour_Customiser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_Frames/Setting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph/PCA/pca.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/PCA/pca.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +22,20 @@
       <file leaf-file-name="pca.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="60" column="65" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="65" />
+            <state relative-caret-position="3045">
+              <caret line="203" column="17" lean-forward="true" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -37,8 +52,8 @@
       <file leaf-file-name="Import_PCA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="102" column="47" lean-forward="true" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+            <state relative-caret-position="420">
+              <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="41" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -49,8 +64,8 @@
       <file leaf-file-name="Import_Admix.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="100" column="36" lean-forward="true" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -58,13 +73,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Genesis-Py_v0.0.8a.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Genesis-Py_v0.0.8a.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+            <state relative-caret-position="2131">
+              <caret line="177" column="59" selection-start-line="177" selection-start-column="59" selection-end-line="177" selection-end-column="59" />
               <folding>
                 <element signature="e#50#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Colour_Customiser.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View_Frames/Colour_Customiser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Setting.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View_Frames/Setting.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Future_Features.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View_Frames/Future_Features.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,6 +137,12 @@
       <find>colours</find>
       <find>choiceList</find>
       <find>save</find>
+      <find>panel</find>
+      <find>CanvasPanel</find>
+      <find>frame</find>
+      <find>FSM</find>
+      <find>child</find>
+      <find>wx</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,12 +196,14 @@
         <option value="$PROJECT_DIR$/View_Frames/__init__.py" />
         <option value="$PROJECT_DIR$/Graph/Graph.py" />
         <option value="$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py" />
-        <option value="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" />
         <option value="$PROJECT_DIR$/Genesis-Py_v0.0.6a.py" />
         <option value="$PROJECT_DIR$/GUI_CHANGELOG.txt" />
-        <option value="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" />
-        <option value="$PROJECT_DIR$/Graph/PCA/pca.py" />
+        <option value="$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py" />
         <option value="$PROJECT_DIR$/Genesis-Py_v0.0.8a.py" />
+        <option value="$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py" />
+        <option value="$PROJECT_DIR$/View_Frames/Setting.py" />
+        <option value="$PROJECT_DIR$/View_Frames/Colour_Customiser.py" />
+        <option value="$PROJECT_DIR$/Graph/PCA/pca.py" />
       </list>
     </option>
   </component>
@@ -173,41 +229,7 @@
             <path>
               <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
               <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="Graph" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="Graph" type="462c0819:PsiDirectoryNode" />
-              <item name="Admixture" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="Graph" type="462c0819:PsiDirectoryNode" />
-              <item name="PCA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
               <item name="View_Frames" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="View_Frames" type="462c0819:PsiDirectoryNode" />
-              <item name="Admix_View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Genesis-Py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Genesis-Py" type="462c0819:PsiDirectoryNode" />
-              <item name="View_Frames" type="462c0819:PsiDirectoryNode" />
-              <item name="PCA_View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -238,6 +260,24 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Genesis-Py_v0.0.8a">
+    <configuration name="Colour_Customiser" type="PythonConfigurationType" factoryName="Python">
+      <module name="Genesis-Py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/View_Frames" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View_Frames/Colour_Customiser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Genesis-Py_v0.0.8a" type="PythonConfigurationType" factoryName="Python">
       <module name="Genesis-Py" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -323,6 +363,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Graph/PCA/pca.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Setting" type="PythonConfigurationType" factoryName="Python">
+      <module name="Genesis-Py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/View_Frames" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View_Frames/Setting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -453,6 +511,8 @@
       <item itemvalue="Python.__init__" />
       <item itemvalue="Python.__init__ (1)" />
       <item itemvalue="Python.Graph" />
+      <item itemvalue="Python.Setting" />
+      <item itemvalue="Python.Colour_Customiser" />
     </list>
     <recent_temporary>
       <list>
@@ -494,13 +554,13 @@
     <frame x="64" y="-11" width="1857" height="1002" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18867925" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984326" visible="true" weight="0.18867925" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.37897575" side_tool="true" weight="0.4611819" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32908458" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.62102425" visible="true" weight="0.2799097" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.62102425" visible="true" weight="0.2799097" />
+      <window_info id="Structure" order="1" sideWeight="0.5015674" side_tool="true" visible="true" weight="0.18867925" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39954853" />
@@ -552,43 +612,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graph/Admixture/AdmixtureInstance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6150">
-          <caret line="410" lean-forward="true" selection-start-line="410" selection-end-line="410" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -714,26 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="102" column="47" lean-forward="true" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="36" lean-forward="true" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Graph/Graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -748,23 +751,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
+    <entry file="file://$PROJECT_DIR$/View_Frames/Future_Features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="60" column="65" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="65" />
+        <state relative-caret-position="105">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="21" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/PCA_View/Import_PCA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/Colour_Customiser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/Setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Genesis-Py_v0.0.8a.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+        <state relative-caret-position="2131">
+          <caret line="177" column="59" selection-start-line="177" selection-start-column="59" selection-end-line="177" selection-end-column="59" />
           <folding>
             <element signature="e#50#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View_Frames/Admix_View/Import_Admix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/PCA/pca.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="203" column="17" lean-forward="true" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
         </state>
       </provider>
     </entry>

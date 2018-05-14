@@ -19,7 +19,9 @@ class PCAGraph:
         self.choice_1 = 0
         self.choice_2 = 0
         self.choiceLen = None
+        self.panel = None
         self.graphType = "PCA"
+        self.fig = None
         # these are the column choices from the phenotype file. to get data you will need to run readFile()
         self.choiceList = []
 
@@ -36,6 +38,10 @@ class PCAGraph:
         return self.choiceList
     def get_number_of_pca(self):
         return self.number_of_pca
+
+    def initUI(self):
+        self.panel = wx.Panel(self)
+        self.fig = plt.figure()
 
     def importEvecFile(self):
         wxFileChoiceFrame = wx.Frame(None, -1, "win.py")
@@ -97,26 +103,6 @@ class PCAGraph:
 
     def choosePCA(self, user_choice_1, user_choice_2):
 
-        # wxFrame = wx.Frame()
-        # panel = wx.Panel(wxFrame)
-        # box = wx.BoxSizer(wx.VERTICAL)
-        # label = wx.StaticText(panel, label="PCA choice 1:", style=wx.ALIGN_CENTRE)
-        # box.Add(label, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 10)
-        #
-        # combo_1 = wx.ComboBox(panel, self.choiceList)
-        # box.Add(combo_1, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
-        #
-        # label_2 = wx.StaticText(panel, label="PCA choice 2:", style=wx.ALIGN_CENTRE)
-        # box.Add(label_2, 0, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
-        #
-        # combo_2 = wx.ComboBox(panel, self.choiceList)
-        # box.Add(combo_2, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
-        #
-        # panel.SetSizer(box)
-        #
-        # wxFrame.Show()
-
-        # use wxpython to create dropdown for pca choices to plot
         self.choice_1 = user_choice_1 + 1
         self.choice_2 = user_choice_2 + 1
 
@@ -180,8 +166,8 @@ class PCAGraph:
 
     def plotScatter(self):
 
-        fig = plt.figure()
-        ax = fig.add_subplot(1, 1, 1)
+
+        ax = self.fig.add_subplot(1, 1, 1)
 
         # for idx, data in enumerate(self.pca_evec_entries[self.choice_1]):
         # for group, colour in self.groupColour:
