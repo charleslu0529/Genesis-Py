@@ -21,7 +21,7 @@ class PCAGraph:
         self.choiceLen = None
         self.panel = None
         self.graphType = "PCA"
-        self.fig = None
+        self.fig = plt.figure()
         # these are the column choices from the phenotype file. to get data you will need to run readFile()
         self.choiceList = []
 
@@ -166,7 +166,7 @@ class PCAGraph:
 
     def plotScatter(self):
 
-
+        
         ax = self.fig.add_subplot(1, 1, 1)
 
         # for idx, data in enumerate(self.pca_evec_entries[self.choice_1]):
