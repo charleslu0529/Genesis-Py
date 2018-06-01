@@ -1,5 +1,5 @@
 import wx
-import Colour_Customiser as colour_cust
+import View_Frames.Colour_Customiser as colour_cust
 
 class Settings_Frame(wx.Frame):
 
