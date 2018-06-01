@@ -67,7 +67,7 @@ class AdmixController:
         frame.SetSize(0, 0, 200, 50)
 
         # Creates the open file dialogue
-        openDataFileDlg = wx.FileDialog(frame, "Open Data File", wildcard="Q data files (*.1;*.2;*.3;*.4;*.5;*.6;*.7)|*.1;*.2;*.3;*.4;*.5;*.6;*.7", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
+        openDataFileDlg = wx.FileDialog(frame, "Open Data File", wildcard="", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
 
         # openDataFileDlg.ShowModal()
 
@@ -224,23 +224,26 @@ class AdmixController:
         count = 0
         self.groupCount = 0
         for lines in self.pheFile:
-            currentLine = lines.split()
+            if count < self.width:
+                currentLine = lines.split()
 
-            # This checks if the current label in the file is equal to the previous one
-            # If there is a change, we know we're dealing with a potential new group
-            # We then compare this with a list of groups already encountered.
-            # If it is not in said list, we add it as a new group.
-            if currentLine[self.column] != currentLabel:
-                currentLabel = currentLine[self.column]
-                for group in self.conciseGroupList:
-                    if currentLabel == group:
-                        groupExists = True
-                if groupExists != True:
-                    self.conciseGroupList.append(currentLabel)
-                    self.groupCount = self.groupCount + 1
+                # This checks if the current label in the file is equal to the previous one
+                # If there is a change, we know we're dealing with a potential new group
+                # We then compare this with a list of groups already encountered.
+                # If it is not in said list, we add it as a new group.
+                if currentLine[self.column] != currentLabel:
+                    currentLabel = currentLine[self.column]
+                    for group in self.conciseGroupList:
+                        if currentLabel == group:
+                            groupExists = True
+                    if groupExists != True:
+                        self.conciseGroupList.append(currentLabel)
+                        self.groupCount = self.groupCount + 1
 
-            count = count + 1
-            groupExists = False
+                count = count + 1
+                groupExists = False
+            else:
+             break
 
 
         # groupList.append([count, currentLabel])
@@ -249,19 +252,27 @@ class AdmixController:
         # We're creating an array with group names and their starting positions
         self.groupList = [[0, "start"]]
         self.sortedMatrix = [[0 for x in range(self.width)] for y in range(self.height)]
-
+        print(self.width)
+        print(self.height)
         itemCount = 0
         for collection in self.conciseGroupList:
             self.pheFile.seek(0)
             count = 0
             for lines in self.pheFile:
-                currentLine = lines.split()
-                currentLabel = currentLine[self.column]
-                if currentLabel == collection:
-                    for values in range(self.wordTotal):
-                        self.sortedMatrix[values][itemCount] = self.Matrix[values][count]
-                    itemCount = itemCount + 1
-                count = count + 1
+                if count < self.width:
+                    currentLine = lines.split()
+                    currentLabel = currentLine[self.column]
+                    if currentLabel == collection:
+                        for values in range(self.wordTotal):
+                            #print(str(values) + "v")
+                            #print(str(count) + "c")
+                            self.sortedMatrix[values][itemCount] = self.Matrix[values][count]
+                            
+                            #self.sortedMatrix[values].append(self.Matrix[values][count])
+                        itemCount = itemCount + 1
+                    count = count + 1
+                else:
+                    break
 
             # We create an array with group names and their starting positions
             self.groupList.append([itemCount, collection])
